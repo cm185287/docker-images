@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const client = new MongoClient("mongodb://localhost:27017/NR1_DigitalCoupon")
+const client = new MongoClient("mongodb://172.20.10.2:27017/NR1_DigitalCoupon")
 const agg = [
     {
         '$group': {
@@ -71,3 +71,4 @@ const collation = {
 };
 const coll = client.db("NR1_DigitalCoupon").collection("Promotions");
 coll.aggregate(agg, collation).toArray();
+console.log("Finished")
